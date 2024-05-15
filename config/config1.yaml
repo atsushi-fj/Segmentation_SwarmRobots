@@ -1,0 +1,36 @@
+# For binary image ScaledQL
+swarm_dim: 104
+background_path: "../dataset/background/"
+swarm_path: "../dataset/swarm/"
+experiment_name: "deeplabv3 baseline"
+model_name: "deeplabv3"
+extra: "baseline"
+project: "Segment_Swarm"
+
+seed: 42
+test_size: 0.3
+mean: [0.7720342, 0.74582646, 0.76392896]
+std: [0.24745085, 0.26182273, 0.25782376]
+n_splits: 2
+img_path: "../input/train_binary/imgs/*"
+mask_path: "../input/train_binary/masks/*"
+batch_size: 32
+
+encoder_name: "resnet50"
+encoder_weights: "imagenet"
+encoder_depth: 4
+in_channels: 3
+decoder_channels: 64
+n_classes: 2
+activation: null
+
+lr: 1.e-4
+weight_decay: 5.e-3
+eps: 1.e-8
+betas: [0.9, 0.999]
+patience: 10
+epochs: 1000
+model_freeze: False
+model_dir: "weights"
+model_path: "deeplabv3_model_config1.pth"
+load_model_path: "weights/deeplabv3_model_config1.pth"
